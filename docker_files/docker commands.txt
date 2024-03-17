@@ -1,0 +1,71 @@
+docker pull hello-world
+
+docker pull nginx
+
+docker run --name myweb -p 7090:80 -d nginx
+(myweb container name, -p port 7090--host port :80--container port, -d(runs in background))
+
+docker ps (shows containers)
+
+(edit inbound rules --all trafic from my ip)
+docker stop a805e9bf2447
+(a805e9bf2447-container-id)
+
+
+docker start myweb
+(myweb -container-name)
+
+ps -ef
+
+
+cd /var/lib/docker/
+ls 
+cd containers/
+ls 
+(list of containerid)
+
+cd a805e9bf2447eedc91408705a99d688bee1df80c18de7353b4c176cff315d39f
+(a805e9bf2447eedc91408705a99d688bee1df80c18de7353b4c176cff315d39f --- containerid)
+
+
+cd ..
+
+du sh a805e9bf2447eedc91408705a99d688bee1df80c18de7353b4c176cff315d39f
+(shows size of container)
+
+logout
+
+
+-------------------------
+
+docker exec myweb ls /
+----------------------------
+
+docker pull nginx:mainline-alpine-perl
+
+docker rmi nginx:mainline-alpine-perl 
+(to delete image )
+
+
+docker rmi nginx 
+(cant delete because its container is runing)
+docker ps
+docker rm a805e9bf2447 
+(cant delete because contaiern is nunning)
+
+
+(first stop the container , then delete the container (rm) then delete the image (rmi))
+
+docker stop a805e9bf2447
+docker rm a805e9bf2447
+docker rmi nginx
+-------------------------------------------
+
+docker pull ubuntu 
+
+docker run ubuntu
+docker ps -a 
+(runs in bin/bash )
+
+docker run -it ubuntu /bin/bash
+

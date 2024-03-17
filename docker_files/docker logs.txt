@@ -1,0 +1,44 @@
+
+docker pull nginx
+
+docker images
+
+docker inspect nginx
+(meta data about the image)
+
+
+docker run -d -P nginx
+(-P automatically selects the host port)
+
+docker ps
+
+docker logs agitated_kowalevski
+(agitated_kowalevski container id/name)
+
+---
+docker run -P nginx
+(will not run in background and will take the shell, press ctrl+c to exit)
+
+docker ps -a 
+------------
+
+docker run -d -P mysql:5.7
+(first it will pull and then run )
+
+docker ps -a 
+(mysql container exited ?)
+
+docker logs nostalgic_carson
+(mysql conatiner nostalgic_carson)
+(errors )
+
+docker run -d -P -e MYSQL_ROOT_PASSWORD=mypass mysql:5.7
+(-e to initiate passwords/vriables)
+
+docker ps
+(mysql container now running)
+
+--------------------
+"""
+    docker logs can be used to find the errors that happen in containers
+"""

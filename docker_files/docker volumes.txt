@@ -1,0 +1,39 @@
+docker pull mysql:5.7
+
+docker inspect mysql:5.7
+"""
+"Volumes": {
+                "/var/lib/mysql": {}
+"""
+mkdir vprodbdata
+
+docker run --name vprodb -d -e MYSQL_ROOT_PASSWORD=secretpass -p 3030:3306 -v /home/ubuntu/vprodbdata:/var/lib/mysql mysql:5.7
+(-p 3030:3306
+        3030 of the host machine maps with 3306 container)
+(/home/ubuntu/vprodbdata-- host machine directory 
+/var/lib/mysql-- container directory)
+
+docker ps
+
+
+ls vprodbdata
+-----------------------
+
+docker volume 
+docker create volume mydbdata
+
+docker volume ls
+
+docker run --name vprodb -d -e MYSQL_ROOT_PASSWORD=secretpass -p 3030:3306 -v mydbdata:/var/lib/mysql mysql:5.7
+
+
+ls /var/lib/docker/volumes/
+
+ls /var/lib/docker/volumes/mydbdata
+
+ls /var/lib/docker/volumes/mydbdata/_data/
+(data stored here)
+
+-----
+docker inspect vprodb
+
